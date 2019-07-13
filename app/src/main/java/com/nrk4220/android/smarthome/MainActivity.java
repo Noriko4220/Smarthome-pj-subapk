@@ -18,6 +18,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ChatLuongNuoc.class);
+                intent.putExtra("keyData", "ChatLuongNuoc");
+                startActivity(intent);
+            }
+        });
+
+        Button matDoBuiButton = (Button) findViewById(R.id.matDoBuiButton);
+        matDoBuiButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ChatLuongNuoc.class);
+                intent.putExtra("keyData", "MatDoBui");
                 startActivity(intent);
             }
         });

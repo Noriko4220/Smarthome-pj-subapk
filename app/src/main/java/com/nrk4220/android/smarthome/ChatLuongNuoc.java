@@ -21,50 +21,27 @@ public class ChatLuongNuoc extends AppCompatActivity {
     /*static {
         System.loadLibrary("native-lib");
     }*/
+    private Bundle bundle;
+    private static String string;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_display_screen);
-        CustomFragmentPagerAdapter customFragmentPagerAdapter = new CustomFragmentPagerAdapter(getSupportFragmentManager(),this);
+        CustomFragmentPagerAdapter customFragmentPagerAdapter = new CustomFragmentPagerAdapter(getSupportFragmentManager(), this);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(customFragmentPagerAdapter);
-        Thread refreshThread = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    while (!isInterrupted()) {
-                        Thread.sleep(180000);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                new dataFetcher().execute();
-                            }
-                        });
-                    }
-                } catch (InterruptedException e) {
-                }
-            }
-        };
-
-        refreshThread.start();
+        bundle = getIntent().getExtras();
+        string = bundle.getString("keyData");
+        /*Bundle bundle = new Bundle();
+        bundle.putString("edttext", getIntent().getExtras(););
+        DataViewFragment dataFragObj = new DataViewFragment();
+        dataFragObj.setArguments(bundle);
+        WebViewFragment webFragObj = new WebViewFragment();
+        webFragObj.setArguments(bundle);*/
     }
 
-    private class dataFetcher extends AsyncTask {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected Object doInBackground(Object[] objects) {
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Object o) {
-            super.onPostExecute(o);
-        }
+    public static String getSwitchString (){
+        return string;
     }
 }

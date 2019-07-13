@@ -23,6 +23,17 @@
         android:layout_height="50dp"
         android:background="#29a9ff"
         android:textColor="#ffffff"
-        android:text="@string/WaterQuality" />
+        android:text="Kiểm tra chất lượng nước"/>
+
+    <Button
+        android:id="@+id/matDoBuiButton"
+        android:layout_below="@id/chatLuongNuocButton"
+        android:layout_margin="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="#29a9ff"
+        android:textColor="#ffffff"
+        android:text="Kiểm tra mật độ bụi" />
 
 </RelativeLayout>
